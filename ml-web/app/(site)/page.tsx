@@ -1,13 +1,17 @@
-import { SectionTitle } from '@/components/ui/SectionTitle';
 import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
-import { ArrowRight, Zap, Users, BarChart3 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
     <div>
-      <section className="bg-gradient-to-br from-primary-light to-accent py-20 md:py-32 px-4">
-        <div className="max-w-7xl mx-auto text-white">
+      {/* Hero Section */}
+      <section 
+        className="py-20 md:py-32 px-4 text-white"
+        style={{
+          background: 'linear-gradient(135deg, #176BEC 0%, #04BCA6 100%)',
+        }}
+      >
+        <div className="max-w-7xl mx-auto">
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Automatización Inteligente y Empleados AI para tu Negocio
@@ -16,66 +20,65 @@ export default function Home() {
               Transforma tus procesos con Make.com, Monday.com y tu fuerza laboral digital impulsada por IA.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="secondary" size="lg" icon={<ArrowRight className="w-5 h-5" />}>
+              <button className="px-6 py-3 rounded-lg font-semibold bg-white text-blue-600 hover:bg-gray-100 transition-colors">
                 Descubre cómo funciona
-              </Button>
-              <Button variant="outline" size="lg">
+              </button>
+              <button className="px-6 py-3 rounded-lg font-semibold border-2 border-white text-white hover:bg-white hover:bg-opacity-10 transition-colors">
                 Agenda tu diagnóstico gratuito
-              </Button>
+              </button>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Benefits Section */}
       <section className="py-20 md:py-32 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          <SectionTitle
-            subtitle="Beneficios"
-            title="Soluciones que Piensan y Actúan Contigo"
-            align="center"
-            description="Ahorra tiempo, integra herramientas y toma decisiones basadas en datos."
-          />
+          <div className="text-center mb-16">
+            <p className="text-sm font-semibold text-blue-600 mb-2">Beneficios</p>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Soluciones que Piensan y Actúan Contigo
+            </h2>
+            <p className="text-gray-600 text-lg">
+              Ahorra tiempo, integra herramientas y toma decisiones basadas en datos.
+            </p>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card
-              icon={<Zap className="text-accent" />}
-              title="40 horas semanales"
-              description="Ahorra con tu equipo de Empleados AI"
-              variant="elevated"
-            />
-            <Card
-              icon={<Users className="text-accent" />}
-              title="Equipos Conectados"
-              description="Integra todas tus herramientas en una plataforma"
-              variant="elevated"
-            />
-            <Card
-              icon={<BarChart3 className="text-accent" />}
-              title="Datos en Tiempo Real"
-              description="Toma decisiones más rápidas y efectivas"
-              variant="elevated"
-            />
-            <Card
-              icon={<ArrowRight className="text-accent" />}
-              title="Escalabilidad"
-              description="Crece sin fricción ni complejidad técnica"
-              variant="elevated"
-            />
+            {[
+              { icon: '⚡', title: '40 horas semanales', desc: 'Ahorra con tu equipo de Empleados AI' },
+              { icon: '👥', title: 'Equipos Conectados', desc: 'Integra todas tus herramientas en una plataforma' },
+              { icon: '📊', title: 'Datos en Tiempo Real', desc: 'Toma decisiones más rápidas y efectivas' },
+              { icon: '📈', title: 'Escalabilidad', desc: 'Crece sin fricción ni complejidad técnica' },
+            ].map((item, idx) => (
+              <div 
+                key={idx}
+                className="p-6 rounded-lg border border-gray-200 hover:shadow-lg transition-shadow"
+              >
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="font-bold text-lg mb-2">{item.title}</h3>
+                <p className="text-gray-600 text-sm">{item.desc}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-primary-dark text-white py-20 md:py-32 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      {/* CTA Section */}
+      <section 
+        className="py-20 md:py-32 px-4 text-white text-center"
+        style={{ backgroundColor: '#23274C' }}
+      >
+        <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             ¿Listo para transformar tu operación?
           </h2>
           <p className="text-xl mb-8 opacity-90">
             Agenda una sesión con nuestro equipo y descubre cómo los Empleados AI pueden revolucionar tu negocio.
           </p>
-          <Button variant="secondary" size="lg" icon={<ArrowRight className="w-5 h-5" />}>
+          <button className="px-8 py-3 rounded-lg font-semibold text-blue-600 bg-white hover:bg-gray-100 transition-colors">
             Agendar Demo Gratuita
-          </Button>
+          </button>
         </div>
       </section>
     </div>
