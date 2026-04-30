@@ -1,19 +1,19 @@
-import { Header } from '@/components/shared/Header';
-import { Footer } from '@/components/shared/Footer';
-import '@/app/globals.css';
+import type { Metadata } from 'next';
+import './globals.css';
 
-export default function SiteLayout({
+export const metadata: Metadata = {
+  title: 'Mundologico - Automatización Inteligente con IA',
+  description: 'Empleados AI que trabajan 24/7 para tu negocio',
+};
+
+export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <>
-      <Header />
-      <main className="min-h-screen">
-        {children}
-      </main>
-      <Footer />
-    </>
+    <html lang="es">
+      <body>{children}</body>
+    </html>
   );
 }
