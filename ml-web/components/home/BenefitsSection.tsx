@@ -1,75 +1,56 @@
-import { Zap, Users, BarChart3, TrendingUp } from 'lucide-react';
-
-interface BenefitItem {
-  icon: React.ReactNode;
-  title: string;
-  description: string;
-  gradient: string;
-}
-
 export default function BenefitsSection() {
-  const benefits: BenefitItem[] = [
+  const benefits = [
     {
-      icon: <Zap className="w-8 h-8" />,
-      title: '40 horas semanales',
-      description: 'Ahorra con tu equipo de Empleados AI',
-      gradient: 'from-mundoPrimary to-mundoTeal',
+      icon: '🔬',
+      title: 'Curiosidad que Escala',
+      description: 'No nos quedamos con lo básico; exploramos el límite de la IA para tu beneficio.',
+      color: '#176BEC',
     },
     {
-      icon: <Users className="w-8 h-8" />,
-      title: 'Equipos Conectados',
-      description: 'Integra todas tus herramientas en una plataforma',
-      gradient: 'from-mundoPurple to-mundoPrimary',
+      icon: '✨',
+      title: 'Simplicidad Digital',
+      description: 'Transformamos procesos complejos en flujos de trabajo transparentes.',
+      color: '#04BCA6',
     },
     {
-      icon: <BarChart3 className="w-8 h-8" />,
-      title: 'Datos en Tiempo Real',
-      description: 'Toma decisiones más rápidas y efectivas',
-      gradient: 'from-mundoTeal to-mundoPurple',
+      icon: '⚡',
+      title: 'Resultados en Semanas',
+      description: 'Olvida proyectos de meses. Priorizamos el Mínimo Experimento Viable.',
+      color: '#513EF5',
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
-      title: 'Escalabilidad',
-      description: 'Crece sin fricción ni complejidad técnica',
-      gradient: 'from-mundoPrimary to-mundoPurple',
+      icon: '🤝',
+      title: 'ADN de Partner',
+      description: 'No somos consultores, somos partners certificados de Monday, Make y Google.',
+      color: '#6F6DFB',
     },
   ];
 
   return (
-    <section className="py-24 md:py-40 px-4 bg-white">
+    <section className="py-24 md:py-32 px-4 bg-white">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="text-center mb-16">
-          <p className="text-mundoPrimary text-sm font-semibold mb-2 uppercase tracking-widest">
+          <p className="text-sm font-semibold mb-2" style={{ color: '#176BEC' }}>
             Beneficios
           </p>
-          <h2 className="font-heading text-4xl md:text-5xl font-bold text-mundoDark mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
             Soluciones que Piensan y Actúan Contigo
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             Ahorra tiempo, integra herramientas y toma decisiones basadas en datos reales.
           </p>
         </div>
 
-        {/* Benefits Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {benefits.map((benefit, idx) => (
             <div
               key={idx}
-              className={`group relative p-8 rounded-2xl bg-gradient-to-br ${benefit.gradient} text-white overflow-hidden transition-all duration-300 hover:shadow-2xl hover:scale-105 cursor-pointer`}
+              className="group relative p-6 rounded-xl border-2 bg-white hover:shadow-xl transition-all duration-300"
+              style={{ borderColor: benefit.color }}
             >
-              {/* Efecto overlay sutil */}
-              <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
-
-              {/* Contenido */}
-              <div className="relative z-10">
-                <div className="mb-4 opacity-90">{benefit.icon}</div>
-                <h3 className="font-heading font-bold text-xl mb-3">{benefit.title}</h3>
-                <p className="text-sm opacity-95 leading-relaxed">{benefit.description}</p>
-              </div>
-
-              {/* Decoración esquina */}
-              <div className="absolute top-0 right-0 w-20 h-20 bg-white opacity-5 rounded-full -mr-10 -mt-10"></div>
+              <div className="text-5xl mb-4">{benefit.icon}</div>
+              <h3 className="text-xl font-bold mb-3 text-gray-900">{benefit.title}</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">{benefit.description}</p>
             </div>
           ))}
         </div>
