@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
-export function Header() {
+export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
